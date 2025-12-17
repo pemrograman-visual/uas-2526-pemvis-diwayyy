@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="soal uas no 4 pair 29"/>
+        <attribute name="authors" value="dewi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-12-17 03.59.17 PM"/>
+        <attribute name="created" value="ZGV3aTtESVdBQVk7MjAyNS0xMi0xNzswMi40Mi40NCBQTTsyMTI4"/>
+        <attribute name="edited" value="ZGV3aTtESVdBQVk7MjAyNS0xMi0xNzswMi41Mi4wNCBQTTsxO2Rld2k7RElXQUFZOzIwMjUtMTItMTc7MDEuMjQuNTggUE07U29hbCBVQVMgbm9tb3IgMSBQQUlSIDI5LmZwcmc7Njc2Mw=="/>
+        <attribute name="edited" value="ZGV3aTtESVdBQVk7MjAyNS0xMi0xNzswMy41OS4xNyBQTTszOzIyNDc="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, a" type="Integer" array="False" size=""/>
+            <input variable="n"/>
+            <declare name="shift" type="Integer" array="True" size="n"/>
+            <declare name="nama" type="String" array="True" size="n"/>
+            <declare name="total, max, min" type="Integer" array="False" size=""/>
+            <declare name="nm, nmk" type="String" array="False" size=""/>
+            <declare name="rt" type="Real" array="False" size=""/>
+            <assign variable="total" expression="0"/>
+            <for variable="a" start="0" end="n-1" direction="inc" step="1">
+                <input variable="nama[a]"/>
+                <input variable="shift[a]"/>
+                <if expression="shift[a]&lt;0">
+                    <then>
+                        <output expression="&quot;INVALID&quot;" newline="True"/>
+                        <input variable="shift[a]"/>
+                    </then>
+                    <else/>
+                </if>
+                <assign variable="total" expression="total+shift[a]"/>
+            </for>
+            <assign variable="max" expression="shift[0]"/>
+            <for variable="a" start="0" end="n-1" direction="inc" step="1">
+                <if expression="max&lt;shift[a]">
+                    <then>
+                        <assign variable="max" expression="shift[a]"/>
+                        <assign variable="nm" expression="nama[a]"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <assign variable="min" expression="shift[0]"/>
+            <for variable="a" start="0" end="n-1" direction="inc" step="1">
+                <if expression="min&gt;shift[a]">
+                    <then>
+                        <assign variable="min" expression="shift[a]"/>
+                        <assign variable="nmk" expression="nama[a]"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <for variable="a" start="0" end="n-1" direction="inc" step="1">
+                <output expression="nama[a] &amp; &quot; = &quot; &amp; shift[a]" newline="True"/>
+            </for>
+            <assign variable="rt" expression="total/n"/>
+            <output expression="&quot;Total shift = &quot;&amp; total" newline="True"/>
+            <output expression="&quot;Rata-rata = &quot; &amp;rt" newline="True"/>
+            <output expression="&quot;Shift terbanyak: &quot;&amp;nm &amp;&quot; (&quot;&amp;max&amp;&quot;)&quot;" newline="True"/>
+            <output expression="&quot;Shift tersedikit: &quot; &amp;nmk&amp;&quot; (&quot;&amp;min&amp;&quot;)&quot;" newline="True"/>
+            <if expression="rt&gt;=5">
+                <then>
+                    <output expression="&quot;Shift terlalu padat.&quot;" newline="True"/>
+                </then>
+                <else>
+                    <if expression="rt&gt;=3&amp;&amp;rt&lt;5">
+                        <then>
+                            <output expression="&quot;Distribusi tidak merata, beberapa asisten terbebani.&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="rt&lt;3">
+                                <then>
+                                    <output expression="&quot;Distribusi tidak merata.&quot;" newline="True"/>
+                                </then>
+                                <else/>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>

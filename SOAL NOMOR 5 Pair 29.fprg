@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="SOAL NOMOR 5 Pair 29"/>
+        <attribute name="authors" value="dewi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-12-17 03.51.54 PM"/>
+        <attribute name="created" value="ZGV3aTtESVdBQVk7MjAyNS0xMi0xNzswMy4yOS4yNSBQTTsyMTMz"/>
+        <attribute name="edited" value="ZGV3aTtESVdBQVk7MjAyNS0xMi0xNzswMy41MS41NCBQTTsxOzIyMzg="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, a" type="Integer" array="False" size=""/>
+            <input variable="n"/>
+            <declare name="nama, status" type="String" array="True" size="n"/>
+            <declare name="ipk" type="Real" array="True" size="n"/>
+            <declare name="pendapatan" type="Integer" array="True" size="n"/>
+            <declare name="tanggung" type="Integer" array="True" size="n"/>
+            <declare name="count" type="Integer" array="False" size=""/>
+            <assign variable="count" expression="0"/>
+            <for variable="a" start="0" end="n-1" direction="inc" step="1">
+                <input variable="nama[a]"/>
+                <input variable="ipk[a]"/>
+                <input variable="pendapatan[a]"/>
+                <input variable="tanggung[a]"/>
+                <if expression="ipk[a]&gt;=3.0">
+                    <then>
+                        <if expression="pendapatan[a]&lt;=3000000">
+                            <then>
+                                <if expression="tanggung[a]&gt;=3">
+                                    <then>
+                                        <assign variable="status[a]" expression="&quot;Lolos&quot;"/>
+                                        <assign variable="count" expression="count+1"/>
+                                    </then>
+                                    <else>
+                                        <assign variable="status[a]" expression="&quot;Tidak Lolos&quot;"/>
+                                    </else>
+                                </if>
+                            </then>
+                            <else>
+                                <assign variable="status[a]" expression="&quot;Tidak Lolos&quot;"/>
+                            </else>
+                        </if>
+                    </then>
+                    <else>
+                        <assign variable="status[a]" expression="&quot;Tidak Lolos&quot;"/>
+                    </else>
+                </if>
+            </for>
+            <for variable="a" start="0" end="n-1" direction="inc" step="1">
+                <output expression="nama[a] &amp; &quot; = &quot; &amp; status[a]" newline="True"/>
+            </for>
+            <output expression="&quot;Total Lolos: &quot; &amp; count" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>

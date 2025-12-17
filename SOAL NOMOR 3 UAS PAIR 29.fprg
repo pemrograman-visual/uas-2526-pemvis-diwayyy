@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="SOAL NOMOR 3 UAS PAIR 29"/>
+        <attribute name="authors" value="dewi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-12-17 03.29.19 PM"/>
+        <attribute name="created" value="ZGV3aTtESVdBQVk7MjAyNS0xMi0xNzswMy4xNi4zOCBQTTsyMTMz"/>
+        <attribute name="edited" value="ZGV3aTtESVdBQVk7MjAyNS0xMi0xNzswMy4yOS4xOSBQTTsxOzIyNDQ="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, a, b" type="Integer" array="False" size=""/>
+            <input variable="n"/>
+            <declare name="nama" type="String" array="True" size="n"/>
+            <declare name="jp, total" type="Integer" array="True" size="n"/>
+            <declare name="kp" type="Integer" array="True" size="jp[a]"/>
+            <assign variable="total" expression="0"/>
+            <for variable="a" start="0" end="n-1" direction="inc" step="1">
+                <input variable="nama[a]"/>
+                <input variable="jp[a]"/>
+                <for variable="b" start="0" end="jp[a]-1" direction="inc" step="1">
+                    <input variable="kp[b]"/>
+                    <if expression="kp[b]&lt;0">
+                        <then>
+                            <output expression="&quot;INVALID&quot;" newline="True"/>
+                            <input variable="kp[b]"/>
+                        </then>
+                        <else/>
+                    </if>
+                    <assign variable="total[a]" expression="total+kp[b]"/>
+                </for>
+            </for>
+        </body>
+    </function>
+</flowgorithm>

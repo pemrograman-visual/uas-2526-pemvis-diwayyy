@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="Soal 2 UAS PAIR 29"/>
+        <attribute name="authors" value="dewi"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-12-17 04.45.51 PM"/>
+        <attribute name="created" value="ZGV3aTtESVdBQVk7MjAyNS0xMi0xNzswMi4yMy4zMiBQTTsyMTI0"/>
+        <attribute name="edited" value="ZGV3aTtESVdBQVk7MjAyNS0xMi0xNzswNC40NS41MSBQTTsyOzIyNDA="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, a" type="Integer" array="False" size=""/>
+            <input variable="n"/>
+            <declare name="nama, status" type="String" array="True" size="n"/>
+            <declare name="stok, terjual, sisa" type="Integer" array="True" size="n"/>
+            <for variable="a" start="0" end="n-1" direction="inc" step="1">
+                <input variable="nama[a]"/>
+                <input variable="stok[a]"/>
+                <if expression="stok[a]&lt;0">
+                    <then>
+                        <output expression="&quot;INVALID&quot;" newline="True"/>
+                        <output expression="&quot;STOK MINIMAL 0&quot;" newline="True"/>
+                        <input variable="stok[a]"/>
+                    </then>
+                    <else/>
+                </if>
+                <input variable="terjual[a]"/>
+                <if expression="terjual[a]&gt;stok[a]">
+                    <then>
+                        <output expression="&quot;INVALID&quot;" newline="True"/>
+                        <output expression="&quot;TERJUAL TIDAK BOLEH LEBIH BANYAK DARI STOK&quot;" newline="True"/>
+                        <input variable="terjual[a]"/>
+                    </then>
+                    <else/>
+                </if>
+                <assign variable="sisa[a]" expression="stok[a]-terjual[a]"/>
+            </for>
+            <for variable="a" start="0" end="n-1" direction="inc" step="1">
+                <if expression="sisa[a]=0">
+                    <then>
+                        <assign variable="status[a]" expression="&quot;Habis, segera restok!&quot;"/>
+                    </then>
+                    <else>
+                        <if expression="sisa[a]&lt;5">
+                            <then>
+                                <assign variable="status[a]" expression="&quot;Stok menipis.&quot;"/>
+                            </then>
+                            <else>
+                                <if expression="sisa[a]&gt;=5">
+                                    <then>
+                                        <assign variable="status[a]" expression="&quot;Stok aman.&quot;"/>
+                                    </then>
+                                    <else/>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </for>
+            <output expression="&quot;Nama    &quot; &amp; &quot;StokAwal  &quot; &amp; &quot;Terjual  &quot; &amp; &quot;Sisa   &quot; &amp; &quot;Status   &quot;" newline="True"/>
+            <output expression="nama[0]&amp;&quot;    &quot; &amp; stok[0]&amp;&quot;  &quot; &amp; terjual[0]&amp;&quot;  &quot; &amp; sisa[0]&amp;&quot;   &quot; &amp; status[0]&amp;&quot;   &quot;" newline="True"/>
+            <output expression="nama[1]&amp;&quot;    &quot; &amp; stok[1]&amp;&quot;  &quot; &amp; terjual[1]&amp;&quot;  &quot; &amp; sisa[1]&amp;&quot;   &quot; &amp; status[1]&amp;&quot;   &quot;" newline="True"/>
+            <output expression="nama[2]&amp;&quot;    &quot; &amp; stok[2]&amp;&quot;  &quot; &amp; terjual[2]&amp;&quot;  &quot; &amp; sisa[2]&amp;&quot;   &quot; &amp; status[2]&amp;&quot;   &quot;" newline="True"/>
+            <output expression="nama[3]&amp;&quot;    &quot; &amp; stok[3]&amp;&quot;  &quot; &amp; terjual[3]&amp;&quot;  &quot; &amp; sisa[3]&amp;&quot;   &quot; &amp; status[3]&amp;&quot;   &quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
